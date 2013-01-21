@@ -47,7 +47,7 @@ function splitHeart() {
   });
   // $(this).clone().appendTo($('.hearts'));
   // $(this).fadeOut('fast');
-  $(this).replaceWith($(heartObject).fadeIn("slow"));
+  $(this).replaceWith($(heartObject).fadeIn("fast"));
 
   console.log($('.heart').css('fontSize'));
 };
