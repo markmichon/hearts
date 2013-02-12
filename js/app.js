@@ -1,10 +1,11 @@
 $(function() {
   var container = $('.hearts');
   var heart = $('.heart');
-  var startWidth = $(window).height() + 'px';
+  var startWidth = $(window).height() + 100 + 'px';
   heart.css('fontSize',startWidth);
+  console.log(startWidth);
   // container.width($(window).height());
-  $(container).on('mouseenter', '.heart', splitHeart).delay(5000);
+  $(container).on('mouseenter', '.heart', splitHeart);
 
 });
 // var heartTemplate = '<div class="hearts"><div class="row"><img class="heart" src="img/heart.svg" /><img class="heart" src="img/heart.svg" /></div><div class="row"><img class="heart" src="img/heart.svg" /><img class="heart" src="img/heart.svg" /></div></div>';
@@ -33,12 +34,13 @@ $(function() {
 /* Font Version */
 heartTemplate = makeHeart();
 function splitHeart() {
+  tempHeart = $(this);
   fontSize = $(this).css('fontSize');
   fontSize = parseInt(fontSize, 10);
-  console.log(fontSize);
+  // console.log(fontSize);
   newSize = (fontSize / 2) + 'px';
   newWidth = (fontSize / 2) + 'px';
-  console.log(newSize);
+  // console.log(newSize);
   heartObject = $(heartTemplate);
   heartObject.find('.heart').each(function(){
     $(this).css('fontSize', newSize);
@@ -46,10 +48,10 @@ function splitHeart() {
     // $(this).css('width', newWidth);
   });
   // $(this).clone().appendTo($('.hearts'));
-  // $(this).fadeOut('fast');
-  $(this).replaceWith($(heartObject).fadeIn("fast"));
+  $(tempHeart).fadeOut(300);
+  $(this).replaceWith($(heartObject).fadeIn(300));
 
-  console.log($('.heart').css('fontSize'));
+  // console.log($('.heart').css('fontSize'));
 };
 function makeHeart() {
   var heartNode = '<div class="heart lsf">heart</div>';

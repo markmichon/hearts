@@ -27,6 +27,33 @@ html {
   display: block;
   max-width: 100%;
   float:left;
+  cursor: pointer;
+}
+
+.block-a, .block-b {
+  float:left;
+}
+.block-a {width:40%;}
+.block-b {width:60%;}
+.block-a span {display:block;}
+h1 {
+  color: #222;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 4em;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  letter-spacing: -3px;
+  margin:2em 24px 0 0;
+}
+span:nth-of-type(1) {
+  color:red;
+}
+
+#start {
+  float:none;
+  margin:0 auto;
 }
 /*img {
   width: 100%;
