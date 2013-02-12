@@ -1,7 +1,8 @@
 $(function() {
   var container = $('.hearts');
   var heart = $('.heart');
-  var startWidth = $(window).height() + 100 + 'px';
+  var startWidth = $(window).height() + 'px';
+  if (startWidth > $(window).width()) { startWidth = $(window).width();}
   heart.css('fontSize',startWidth);
   console.log(startWidth);
   // container.width($(window).height());

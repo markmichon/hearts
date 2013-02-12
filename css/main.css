@@ -5,9 +5,11 @@ html {
   max-width:1100px;
   margin-right:auto;
   margin-left:auto;
+  margin-top: 25px;
   line-height:.65;
   text-align: center;
   color: #facade;
+  overflow: hidden;
 }
 
 /*.hearts {
