@@ -1,10 +1,10 @@
 $(function() {
   var container = $('.hearts');
   var heart = $('.heart');
-  var startWidth = $(window).height() + 'px';
-  if (startWidth > $(window).width()) { startWidth = $(window).width();}
-  heart.css('fontSize',startWidth);
-  console.log(startWidth);
+  var startWidth = $(window).height() /2 + 'px';
+  // if (startWidth > $(window).width()) { startWidth = $(window).width();}
+  // heart.css({'width' : startWidth, 'height' : startWidth});
+  // console.log(startWidth);
   // container.width($(window).height());
   $(container).on('mouseenter', '.heart', splitHeart);
 
@@ -36,32 +36,37 @@ $(function() {
 heartTemplate = makeHeart();
 function splitHeart() {
   tempHeart = $(this);
-  fontSize = $(this).css('fontSize');
-  fontSize = parseInt(fontSize, 10);
+  console.log(tempHeart);
+  size = $(this).css('width');
+  size = parseInt(size, 10);
   // console.log(fontSize);
-  newSize = (fontSize / 2) + 'px';
-  newWidth = (fontSize / 2) + 'px';
+  newSize = size;
+  heartSize = Math.floor(newSize / 2);
+  // newWidth = (size / 2) + 'px';
   // console.log(newSize);
   heartObject = $(heartTemplate);
-  heartObject.find('.heart').each(function(){
-    $(this).css('fontSize', newSize);
-    $(this).css('color', pickColor());
+  heartObject.find('.heart-frame').each(function(){
+    $(this).css({'width': newSize + 'px', 'height' : newSize + 'px'}); //frame
+    $(this).children().css({'width': heartSize + 'px', 'height': heartSize + 'px',  'backgroundColor' : pickColor()}); //heart
+    // console.log($(this).filter('.heart').css('width'));
+    // console.log($(this).parents());
+    // $(this).css('color', pickColor());
     // $(this).css('width', newWidth);
   });
   // $(this).clone().appendTo($('.hearts'));
   $(tempHeart).fadeOut(300);
   $(this).replaceWith($(heartObject).fadeIn(300));
+}
 
-  // console.log($('.heart').css('fontSize'));
-};
 function makeHeart() {
-  var heartNode = '<div class="heart lsf">heart</div>';
+  var heartNode = '<div class="heart-frame"><div class="heart"></div></div>';
   heartTemplate = '<div class="hearts">' + '<div class="row">' + heartNode + heartNode + '</div><div class="row">' + heartNode + heartNode + '</div></div>';
+    // heartTemplate = '<div class="hearts">' + heartNode + heartNode + '</div>';
   return heartTemplate;
 }
 
 function pickColor() {
-  var colors = [ '#facade', '#f9bad4', '#f7abcb', '#f69bc1', '#f48cb7', '#333']
+  var colors = [ '#facade', '#f9bad4', '#f7abcb', '#f69bc1', '#f48cb7', '#333'];
   var random = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
   return colors[random];
 }

@@ -24,19 +24,16 @@ html {
 }*/
 .row {
   clear: left;
-}
-.heart, .hearts {
-  display: block;
-  /*max-width: 100%;*/
-  float:left;
-  cursor: pointer;
+  /*display: block;*/
 }
 
 .block-a, .block-b {
   float:left;
 }
 .block-a {width:40%;}
-.block-b {width:60%;}
+.block-b {
+  width:60%;
+}
 .block-a span {display:block;}
 h1 {
   color: #222;
@@ -53,13 +50,52 @@ span:nth-of-type(1) {
   color:red;
 }
 
-#start {
-  float:none;
-  margin:0 auto;
+.heart, .hearts, .heart-frame {
+  /*display: /*inline-block*/ !important;*/
+  display: block;
+  cursor: pointer;
 }
-/*img {
+
+.heart-frame, .hearts {
+  display: block;
+  float:left;
+}
+
+.heart-frame {
+  width:600px;
+  height:600px;
+}
+.heart {
+  display: block;
+  width: 300px;
+  height: 300px;
+  background-color: pink;
+  position: relative;
+  top: 25%;
+  left:25%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.heart:before, .heart:after {
+  content: '';
   width: 100%;
+  height:100%;
+  border-radius: 50%;
+  /*display: block;*/
+  position: absolute;
+  background: inherit;
 }
-*/.first {
-  clear:left;
+
+.heart:before {
+  top:0;
+  left:-50%;
+}
+
+.heart:after {
+  top: -50%;
+  left:0;
 }
