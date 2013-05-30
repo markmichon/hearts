@@ -1,7 +1,13 @@
 $(function() {
   var container = $('.hearts');
+  var heartFrame = $('.heart-frame');
   var heart = $('.heart');
-  var startWidth = $(window).height() /2 + 'px';
+  var startWidth = Math.floor($(window).height());
+  var wrapper = $('.wrap');
+  // if (startWidth > $(window).width()) { startWidth = $(window).width();}
+  wrapper.css({'max-width' : startWidth + 'px', 'max-height' : startWidth+ 'px'});
+  // heart.css({'max-width' : startWidth / 2 + 'px', 'max-height' : startWidth / 2 + 'px'});
+
   $(container).on('mouseenter', '.heart', splitHeart);
 });
 
@@ -18,8 +24,8 @@ function splitHeart() {
   // console.log(newSize);
   heartObject = $(heartTemplate);
   heartObject.find('.heart-frame').each(function(){
-    $(this).css({'width': newSize + 'px', 'height' : newSize + 'px'});
-    $(this).children().css({'width': heartSize + 'px', 'height': heartSize + 'px',  'backgroundColor' : pickColor()});
+    // $(this).css({'width': newSize + 'px', 'height' : newSize + 'px'});
+    $(this).children().css({'backgroundColor' : pickColor()});
   });
 
   $(tempHeart).fadeOut(300);

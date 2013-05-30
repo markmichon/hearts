@@ -1,40 +1,47 @@
-html {
+body {
   background-color:#fdf8f8;
 }
-.wrap {
-  max-width:100%;
-  margin-right:auto;
-  margin-left:auto;
-  margin-top: 25px;
-  line-height:.65;
+
+.meta {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#333;
   text-align: center;
-  color: #facade;
-  overflow: hidden;
+  color: #fefefe;
+  line-height: 2em;
 }
 
-/*.hearts {
-  background-color: #ccc;
-  overflow: hidden;
-}*/
-/*
-.heart {
-  float:left;
-  font-size: 20em;
-  line-height: 1em;
-}*/
+.wrap {
+/*  position:absolute;
+  color: #facade;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;*/
+  margin:20px auto 0;
+  /*width: 100%;*/
+  /*overflow: auto;*/
+}
+
 .row {
   clear: left;
   /*display: block;*/
 }
 
-.block-a, .block-b {
-  float:left;
+.row:before,
+.row:after,
+.wrap:before,
+.wrap:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
-.block-a {width:40%;}
-.block-b {
-  width:60%;
+
+.row:after,
+.wrap:after {
+    clear: both;
 }
-.block-a span {display:block;}
 h1 {
   color: #222;
   font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -51,27 +58,29 @@ span:nth-of-type(1) {
 }
 
 .heart, .hearts, .heart-frame {
-  /*display: /*inline-block*/ !important;*/
   display: block;
   cursor: pointer;
 }
 
 .heart-frame, .hearts {
-  display: block;
   float:left;
+  /*overflow: auto;*/
 }
 
+.hearts {
+  width: 100%;
+}
 .heart-frame {
-  width:600px;
-  height:600px;
+  width: 100%;
 }
 .heart {
   display: block;
-  width: 300px;
-  height: 300px;
+  width: 50%;
+  padding-bottom: 50%;
+  margin-top: 25%;
   background-color: pink;
   position: relative;
-  top: 25%;
+  /*top: 25%;*/
   left:25%;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -98,4 +107,8 @@ span:nth-of-type(1) {
 .heart:after {
   top: -50%;
   left:0;
+}
+
+.row > * {
+  width: 50%;
 }
